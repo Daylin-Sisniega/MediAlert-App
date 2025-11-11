@@ -1,0 +1,111 @@
+/*Contenedor fluido para TODAS las páginas */
+.container{
+  /* ancho adaptable: entre 360px y 1100px según viewport */
+  width: min(92vw, 1100px);
+  margin: 24px auto;
+  padding-inline: clamp(12px, 2vw, 24px);
+}
+
+/* Tipografía que escala sutilmente */
+:root{
+  --fs-h2: clamp(20px, 2.2vw, 28px);
+  --fs-p: clamp(14px, 1.2vw, 16px);
+}
+h2{ font-size: var(--fs-h2); }
+p, li, input, button, select, textarea{ font-size: var(--fs-p); }
+
+/* Auth (Login / SignUp) centrado y responsive */
+.auth-wrap{
+  min-height: calc(100vh - 180px); /* alto visible (header+footer aprox) */
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 32px) 16px;
+}
+
+.auth-card{
+  width: 100%;
+  max-width: 560px;              /* base */
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(18px, 2.2vw, 24px);
+}
+
+/* aumentamos ancho en pantallas medianas y grandes */
+@media (min-width: 768px){
+  .auth-card{ max-width: 640px; }
+}
+@media (min-width: 1200px){
+  .auth-card{ max-width: 720px; }
+}
+
+/* que los inputs/botón ocupen todo el ancho de la card */
+.auth-card form input,
+.auth-card form select,
+.auth-card form textarea{ width: 100%; }
+.auth-actions button{ width: 100%; }
+/* ===== THEME BASE (reemplaza lo que hacía theme.css) ===== */
+:root{
+  --bg: #0b1220;
+  --text: #E5E7EB;
+  --muted: #9CA3AF;
+  --panel: #0f172a;        /* tarjetas / panels */
+  --input-bg: #111827;     /* campos de formulario */
+  --border: #374151;
+  --accent: #3B82F6;
+  --radius: 12px;
+  --shadow: 0 8px 30px rgba(0,0,0,.35);
+}
+
+*{ box-sizing: border-box; }
+html, body, #root{ height: 100%; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+a{ color: var(--accent); text-decoration: none; }
+a:hover{ text-decoration: underline; }
+
+/* Campos y botones con el mismo estilo que Profile */
+input, select, textarea{
+  width: 100%;
+  background: var(--input-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  outline: none;
+}
+input::placeholder, textarea::placeholder{ color: var(--muted); }
+
+button{
+  background: linear-gradient(180deg, #4AA3FF 0%, #1E63FF 100%);
+  color: white;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  cursor: pointer;
+}
+button:disabled{ opacity: .7; cursor: not-allowed; }
+button:hover{ filter: brightness(1.05); }
+
+/* Tarjetas de auth */
+.auth-card{
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* TIPOGRAFÍA ESCALABLE: solo en texto, NO en inputs/botones */
+:root{
+  --fs-h2: clamp(20px, 2.2vw, 28px);
+  --fs-p: clamp(14px, 1.2vw, 16px);
+}
+h2{ font-size: var(--fs-h2); }
+p, li{ font-size: var(--fs-p); }  /* ← quitamos inputs/botones de aquí */
