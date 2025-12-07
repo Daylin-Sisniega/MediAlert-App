@@ -11,15 +11,13 @@ const meRoutes = require("./routes/me.routes")
 const remindersRoutes = require("./routes/reminders.routes");
 const app = express();
 
-
+const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
 app.use(
   cors({
-    origin: "http://localhost:5173", // front Vite
+    origin: CLIENT_ORIGIN, // antes estaba hardcodeado
     credentials: true,
   })
 );
-app.use(express.json());
-
 
 connectDB();
 
