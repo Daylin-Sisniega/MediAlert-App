@@ -1,4 +1,3 @@
-// client/src/pages/Support.jsx
 export default function Support() {
   return (
     <section

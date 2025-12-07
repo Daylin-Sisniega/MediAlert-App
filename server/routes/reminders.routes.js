@@ -1,12 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const Reminder = require("../models/medicationReminder"); // Asegura nombre/case correcto
+const Reminder = require("../models/medicationReminder"); 
 const auth = require("../middleware/auth");
 const c = require("../controllers/reminders.controller");
 
 const router = express.Router();
 
-//Aplica auth a TODAS las rutas de este router
 router.use(auth);
 
 /** Helpers */
@@ -14,10 +13,8 @@ function isValidId(id) {
   return mongoose.isValidObjectId(id);
 }
 
-/**
- * GET /api/reminders
- * Lista SOLO los recordatorios del usuario logueado
- */
+// GET /api/reminders it just give a list of the reminders of the user with the account
+ 
 router.get("/", async (req, res) => {
   try {
     const page = Math.max(parseInt(req.query.page || "1", 10), 1);
@@ -46,10 +43,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-/**
- * GET /api/reminders/:id
- * Obtiene un recordatorio del usuario (verifica propiedad)
- */
+// GET /api/reminders/:id it does have the reminders verify
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -66,11 +60,7 @@ router.get("/:id", async (req, res) => {
 
 });
 
-/**
- * POST /api/reminders
- * Crea un recordatorio para el usuario logueado
- * body: { medicationName, dosage, schedule, startDate?, endDate?, notes? }
- */
+// POST /api/reminders create the reminder for the user with the accout open
 router.post("/", async (req, res) => {
   try {
     const { medicationName, dosage, schedule, startDate, endDate, notes } = req.body;
@@ -95,10 +85,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-/**
- * PUT /api/reminders/:id
- * Actualiza un recordatorio del usuario (verifica propiedad)
- */
+//PUT /api/reminders/:id update the reminder that the user put
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -118,10 +105,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-/**
- * DELETE /api/reminders/:id
- * Elimina un recordatorio del usuario (verifica propiedad)
- */
+//DELETE /api/reminders/:id deletes a reminder that the user specify
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;

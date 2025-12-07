@@ -1,4 +1,3 @@
-// client/src/pages/PrivacyPolicy.jsx
 export function PrivacyPolicyContent() {
   return (
     <>

@@ -1,4 +1,3 @@
-// client/src/pages/TermsOfUse.jsx
 export function TermsOfUseContent() {
   return (
     <>

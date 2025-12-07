@@ -1,4 +1,3 @@
-// server/models/medicationReminder.js
 const mongoose = require("mongoose");
 
 const reminderSchema = new mongoose.Schema(

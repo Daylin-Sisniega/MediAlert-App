@@ -11,16 +11,16 @@ const meRoutes = require("./routes/me.routes")
 const remindersRoutes = require("./routes/reminders.routes");
 const app = express();
 
-//
+
 app.use(
   cors({
     origin: "http://localhost:5173", // front Vite
     credentials: true,
   })
 );
-app.use(express.json()); // JSON body parser
+app.use(express.json());
 
-//DB
+
 connectDB();
 
 // Rutas públicas 
@@ -43,7 +43,7 @@ app.get("/api/secure/ping", requireAuth, (req, res) => {
   res.json({ ok: true, user: req.user });
 });
 
-//404 (no encontrada)
+//404 
 app.use((req, res) => {
   res.status(404).json({ error: "Not found" });
 });

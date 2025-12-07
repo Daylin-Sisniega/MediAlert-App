@@ -1,4 +1,3 @@
-// server/models/Medication.js
 const mongoose = require("mongoose");
 
 const MedicationSchema = new mongoose.Schema({

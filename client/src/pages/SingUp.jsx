@@ -32,7 +32,7 @@ export default function Register() {
     try {
       setLoading(true);
       const user = await registerUser(form);
-      setMsg(`Account created for ${user.email} ✅`);
+      setMsg(`Account created for ${user.email}`);
       setTimeout(() => nav("/login"), 800);
     } catch (err) {
       setMsg(err.message);

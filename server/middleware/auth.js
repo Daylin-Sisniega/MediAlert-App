@@ -8,7 +8,6 @@ module.exports = function requireAuth(req, res, next) {
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    // estandariza:
     req.user = { id: decoded.id, email: decoded.email, name: decoded.name };
     req.userId = decoded.id;
 

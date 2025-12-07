@@ -52,7 +52,7 @@ export default function Profile() {
       });
       // Keep the name synchronized in localStorage
       saveAuth({ token: auth.token, user: { ...auth.user, name: updated.name } });
-      setMsg("Profile updated ✅");
+      setMsg("Profile updated ");
     } catch (err) {
       setMsg(err.message);
     }

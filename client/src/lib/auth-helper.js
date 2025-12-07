@@ -8,7 +8,6 @@ function removeItem(k) { sessionStorage.removeItem(k); }
 
 export function saveAuth({ token, user }) {
   setItem(KEY, JSON.stringify({ token, user }));
-  // in case somethign was still on the localstorage
   removeItem(REMINDERS_KEY);
 }
 

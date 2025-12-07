@@ -7,7 +7,7 @@ export default function Navbar() {
 
   const Item = ({ to, children }) => (
     <Link
-      to={to}
+      to={to} 
       onClick={() => setOpen(false)}
       style={{
         display: "block",

@@ -13,7 +13,7 @@ export default function Reminders() {
   async function load() {
     try {
       setLoading(true);
-      const data = await listReminders();   // back devuelve sólo los del usuario autenticado
+      const data = await listReminders();   
       setItems(data);
       setMsg("");
     } catch (e) {
@@ -44,7 +44,7 @@ export default function Reminders() {
         await createReminder(form);
       }
       setForm(empty);
-      await load(); // refresca lista desde servidor
+      await load(); 
     } catch (e) {
       setMsg(e.message || "Server error");
     }
@@ -60,7 +60,7 @@ export default function Reminders() {
   }
 
   function startEdit(it) {
-    setEditingId(it._id); // usa _id del back
+    setEditingId(it._id);
     setForm({
       medicationName: it.medicationName || "",
       dosage: it.dosage || "",
