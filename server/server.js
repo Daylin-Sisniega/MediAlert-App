@@ -12,12 +12,21 @@ const remindersRoutes = require("./routes/reminders.routes");
 const app = express();
 
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || "http://localhost:5173";
+
+const allowedOrigins = [
+  CLIENT_ORIGIN,
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "http://localhost:5176",
+];
+
 app.use(
   cors({
-    origin: CLIENT_ORIGIN, // antes estaba hardcodeado
+    origin: allowedOrigins,
     credentials: true,
   })
 );
+app.use(express.json());
 
 connectDB();
 
