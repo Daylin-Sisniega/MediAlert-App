@@ -1,0 +1,12 @@
+[build]
+  base    = "client"
+  publish = "dist"
+  command = "npm install && npm run build"
+
+[build.environment]
+  VITE_API_URL = "https://medialert-app-8lmx.onrender.com"
+
+[[redirects]]
+  from = "/*"
+  to   = "/index.html"
+  status = 200
