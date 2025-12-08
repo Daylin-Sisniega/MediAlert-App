@@ -23,6 +23,11 @@ export function PrivacyPolicyContent() {
         Your information is never sold, shared, or used for advertising. We follow best practices
         to protect your data and comply with health data handling guidelines.
       </p>
+
+      <p style={{ marginTop: "16px", color: "#aaa" }}>
+       This is a CI/CD demo update for the Web Application Development project.
+      </p>
+
     </>
   );
 }
